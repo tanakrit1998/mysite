@@ -1,0 +1,35 @@
+- model: course.Mill
+  Mill: 1
+  fields:
+    Millname: โชคดี
+    location: 
+    price: 1600
+    score: 3
+- model: course.Mill
+  Mill: 2
+  fields:
+    Millname: โชคชัย
+    location: 
+    price: 1550
+    score: 4
+- model: course.Mill
+  Mill: 3
+  fields:
+    Millname: โชคชัย
+    location: 
+    price: 1620
+    score: 5
+- model: course.Mill
+  Mill: 3
+  fields:
+    Millname: ชัยยา
+    location: 
+    price: 1600
+    score: 5
+- model: course.Mill
+  Mill: 3
+  fields:
+    Millname: โชคดีเด้อ
+    location: 
+    price: 1580
+    score: 4

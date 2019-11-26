@@ -1,0 +1,35 @@
+- model: course.Login
+  User: 1
+  fields:
+    username: tanakrit@gmail.com 
+    password: 123456
+- model: course.Login
+  User: 2
+  fields:
+    username: bos@gmail.com 
+    password: 5678
+- model: course.Login
+  User: 3
+  fields:
+    username: bossaka@gmail.com 
+    password: 111
+- model: course.Login
+  User: 4
+  fields:
+    username: aaa@gmail.com 
+    password: aaa
+- model: course.Login
+  User: 5
+  fields:
+    username: bbb@gmail.com 
+    password: bbb
+- model: course.Login
+  User: 6
+  fields:
+    username: ccc@gmail.com 
+    password: ccc
+- model: course.Login
+  User: 7
+  fields:
+    username: ddd@gmail.com 
+    password: ddd

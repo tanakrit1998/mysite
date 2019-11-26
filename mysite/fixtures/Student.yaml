@@ -1,0 +1,83 @@
+- model: course.Student
+  pk: 1
+  fields:
+    uid: 2879624219875
+    yid: 1
+    title: น.ต.หญิง 
+    first_name: จารุวรรณ
+    last_name: จันทร์โพธิ์งาม
+    department: รพ.สมเด็จพระปิ่นเกล้า
+    organization: ภายใน ทร.
+- model: course.Student
+  pk: 2
+  fields:
+    uid: 8917851863276
+    yid: 1
+    title: น.ท.
+    first_name: รุ่งพันธุ์
+    last_name: นาวีสุรพล
+    department: รพ.สมเด็จพระปิ่นเกล้า
+    organization: ภายใน ทร.
+- model: course.Student
+  pk: 3
+  fields:
+    uid: 8624353792838
+    yid: 1
+    title: น.อ.ท.
+    first_name: อารีย์
+    last_name: โลมสนธิ
+    department: รพ.ภูมิพล
+    organization: ภายนอก ทร.
+- model: course.Student
+  pk: 4
+  fields:
+    uid: 8624353792000
+    yid: 1
+    title: น.อ.
+    first_name: ศักดิ์สมุทร
+    last_name: พรหมบุตร
+    department: รพ.ทหารเรือกรุงเทพ
+    organization: ภายใน ทร.
+    
+- model: course.Student
+  pk: 7
+  fields:
+    uid: 2879624219875
+    yid: 2
+    title: น.ต.หญิง 
+    first_name: จารุวรรณ
+    last_name: จันทร์โพธิ์งาม
+    department: รพ.สมเด็จพระปิ่นเกล้า
+    organization: ภายใน ทร.
+    
+- model: course.Student
+  pk: 8
+  fields:
+    uid: 8917851863276
+    yid: 2
+    title: น.ท.
+    first_name: รุ่งพันธุ์
+    last_name: นาวีสุรพล
+    department: รพ.สมเด็จพระปิ่นเกล้า
+    organization: ภายใน ทร.
+- model: course.Student
+  pk: 5
+  fields:
+    uid: 8917851863276
+    yid: 3
+    title: น.ท.
+    first_name: รุ่งพันธุ์
+    last_name: นาวีสุรพล
+    department: รพ.สมเด็จพระปิ่นเกล้า
+    organization: ภายใน ทร.
+- model: course.Student
+  pk: 6
+  fields:
+    uid: 8624353792838
+    yid: 3
+    title: น.อ.ท.
+    first_name: อารีย์
+    last_name: โลมสนธิ
+    department: รพ.ภูมิพล
+    organization: ภายนอก ทร.
+

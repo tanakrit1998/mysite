@@ -1,0 +1,21 @@
+- model: course.Farmer
+  farmer:
+  fields:
+    first_name: สมศักดิ์
+    last_name: ดีจริง
+    username: aaa@gmail.com
+    call: 08888888
+- model: course.Farmer
+  farmer:
+  fields:
+    first_name: สมศรี
+    last_name: ดีจ้า
+    username: bbb@gmail.com
+    call: 09999999
+- model: course.Farmer
+  farmer:
+  fields:
+    first_name: สมหมาย
+    last_name: ดีโด้
+    username: ccc@gmail.com
+    call: 022222222
