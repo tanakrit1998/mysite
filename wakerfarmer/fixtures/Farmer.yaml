@@ -4,14 +4,14 @@
     first_name: สมศักดิ์
     last_name: ดีจริง
     username: aaa@gmail.com
-    call: 08888888
+    call: 01111111
 - model: course.Farmer
   farmer:
   fields:
     first_name: สมศรี
     last_name: ดีจ้า
     username: bbb@gmail.com
-    call: 09999999
+    call: 033333333
 - model: course.Farmer
   farmer:
   fields:

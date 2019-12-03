@@ -25,7 +25,8 @@ SECRET_KEY = '+fjl=+&(m+)82-fe&fc!4io@mnvk=hv1)=hs57f0&-5##r9ze8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'wakerfarmer.pythonanywhere.com']
+ALLOWED_HOSTS = [u'wakerfarmer.pythonanywhere.com'
+,'127.0.0.1']
 
 
 # Application definition
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'wakerfarmer',
+    
 ]
 
 MIDDLEWARE = [
