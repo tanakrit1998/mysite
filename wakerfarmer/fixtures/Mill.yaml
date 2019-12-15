@@ -1,35 +1,45 @@
-- model: course.Mill
-  Mill: 1
+- model: wakerfarmer.Mill
+  pk: 1
   fields:
-    Millname: โชคดี
-    location: 
+    name: โชคดี
     price: 1600
+    sprice: 1500
     score: 3
-- model: course.Mill
-  Mill: 2
+    lat: ""
+    lng: ""
+- model: wakerfarmer.Mill
+  pk: 2
   fields:
-    Millname: โชคชัย
-    location: 
+    name: โชคชัย
     price: 1550
+    sprice: 1560
     score: 4
-- model: course.Mill
-  Mill: 3
+    lat: ""
+    lng: ""
+- model: wakerfarmer.Mill
+  pk: 3
   fields:
-    Millname: โชคชัย
-    location: 
+    name: โชคชัย
     price: 1620
+    sprice: 1600
     score: 5
-- model: course.Mill
-  Mill: 3
+    lat: ""
+    lng: ""
+- model: wakerfarmer.Mill
+  pk: 4
   fields:
-    Millname: ชัยยา
-    location: 
+    name: ชัยยา
     price: 1600
+    sprice: 1550
     score: 5
-- model: course.Mill
-  Mill: 3
+    lat: ""
+    lng: ""
+- model: wakerfarmer.Mill
+  pk: 5
   fields:
-    Millname: โชคดีเด้อ
-    location: 
+    name: โชคดีเด้อ
     price: 1580
+    sprice: 1550
     score: 4
+    lat: ""
+    lng: ""

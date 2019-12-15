@@ -1,0 +1,18 @@
+- model: wakerfarmer.User
+  pk: 1
+  fields:
+    username: tana1998
+    password: 1234
+    usertype: 1
+- model: wakerfarmer.User
+  pk: 2
+  fields:
+    username: boss
+    password: 1111
+    usertype: 1
+- model: wakerfarmer.User
+  pk: 3
+  fields:
+    username: aaaaa
+    password: 2222
+    usertype: 2

@@ -1,0 +1,8 @@
+- model: wakerfarmer.Usertype
+    pk: 1
+    fields:
+        name: farmer
+- model: wakerfarmer.Usertype
+        pk: 2
+        fields:
+            name: Millowner

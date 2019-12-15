@@ -1,21 +1,21 @@
-- model: course.Farmer
-  farmer:
+- model: wakerfarmer.Farmer
+  pk: 1
   fields:
     first_name: สมศักดิ์
     last_name: ดีจริง
-    username: aaa@gmail.com
+    email: aaa@gmail.com
     call: 01111111
-- model: course.Farmer
-  farmer:
+- model: wakerfarmer.Farmer
+  pk: 2
   fields:
     first_name: สมศรี
     last_name: ดีจ้า
-    username: bbb@gmail.com
+    email: bbb@gmail.com
     call: 033333333
-- model: course.Farmer
-  farmer:
+- model: wakerfarmer.Farmer
+  pk: 3
   fields:
     first_name: สมหมาย
     last_name: ดีโด้
-    username: ccc@gmail.com
+    email: ccc@gmail.com
     call: 022222222
