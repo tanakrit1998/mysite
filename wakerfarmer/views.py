@@ -10,9 +10,13 @@ def index(req):
     return render(req, 'wakeupfarmer/index.html')
 
 def apimills(req):
-    mills = Mill.objects.all()
-    data = serializers.serialize('json', mills)
-    return HttpResponse(data, content_type='application/json')
+    if req.method == 'POST':
+        print( req.POST )
+        mills = Mill.objects.all()
+        data = serializers.serialize('json', mills)
+        return HttpResponse(data, content_type='application/json')
+    else:
+        return HttpResponse({}, content_type='application/json')
 
 def api_get_close_mills(req, lat, lng, distance='5.0'):
     distance = float(distance)
