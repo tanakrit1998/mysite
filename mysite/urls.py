@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/closemills/<str:lat>/<str:lng>/<str:distance>/', views.api_get_close_mills),
     
     path('admin/', admin.site.urls),
+    
 ]

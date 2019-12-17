@@ -1,0 +1,25 @@
+- model: wakerfarmer.Location
+  pk: 1
+  fields:
+    lat: 12.11
+    lng: 133.11
+- model: wakerfarmer.Location
+  pk: 2
+  fields:
+    lat: 15.12
+    lng: 150.11
+- model: wakerfarmer.Location
+  pk: 3
+  fields:
+    lat: 16.12
+    lng: 110.15
+- model: wakerfarmer.Location
+  pk: 4
+  fields:
+    lat: 18.11
+    lng: 188.11
+- model: wakerfarmer.Location
+  pk: 5
+  fields:
+    lat: 14.77
+    lng: 200.11

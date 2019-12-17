@@ -1,8 +1,8 @@
 - model: wakerfarmer.Category
     pk: 1 
     fields: 
-    name: ข้าวเปลือกหอมมะลิและข้าวเปลือกเหนียว
+    name: ข้าวเปลือกหอมมะลิ
 - model: wakerfarmer.Category
     pk: 2
     fields:
-        name: ข้าวเปลือกจ้าวนาปรัง
+        name: ข้าวเปลือกเหนียว

@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 pyyaml = "*"
+django-extensions = "*"
+pygraphviz = "*"
 
 [requires]
 python_version = "3.7"

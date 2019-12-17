@@ -4,42 +4,38 @@
     name: โชคดี
     price: 1600
     sprice: 1500
-    score: 3
-    lat: ""
-    lng: ""
+    lat: 1
+    lng: 1
 - model: wakerfarmer.Mill
   pk: 2
   fields:
     name: โชคชัย
     price: 1550
     sprice: 1560
-    score: 4
-    lat: ""
-    lng: ""
+    lat: 2
+    lng: 2
 - model: wakerfarmer.Mill
   pk: 3
   fields:
     name: โชคชัย
     price: 1620
     sprice: 1600
-    score: 5
-    lat: ""
-    lng: ""
+    lat: 3
+    lng: 3
 - model: wakerfarmer.Mill
   pk: 4
   fields:
     name: ชัยยา
     price: 1600
     sprice: 1550
-    score: 5
-    lat: ""
-    lng: ""
+    lat: 4
+    lng: 4
 - model: wakerfarmer.Mill
   pk: 5
   fields:
     name: โชคดีเด้อ
     price: 1580
     sprice: 1550
-    score: 4
-    lat: ""
-    lng: ""
+    lat: 5
+    lng: 5
+   

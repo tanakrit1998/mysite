@@ -1,0 +1,25 @@
+- model: wakerfarmer.Ownermill
+  pk: 1
+  fields:
+    first_name: นายโชค
+    last_name: ใจดี
+- model: wakerfarmer.Ownermill
+  pk: 2
+  fields:
+    first_name: นายโชคดี
+    last_name: มีชัย
+- model: wakerfarmer.Ownermill
+  pk: 3
+  fields:
+    first_name: นายโชคชัย
+    last_name: มีวัว
+- model: wakerfarmer.Ownermill
+  pk: 4
+  fields:
+    first_name: นางสุขใจ
+    last_name: ชื่นบาน
+- model: wakerfarmer.Ownermill
+  pk: 5
+  fields:
+    first_name: นายศักดิ์ศรี
+    last_name: เชื้อชาติ

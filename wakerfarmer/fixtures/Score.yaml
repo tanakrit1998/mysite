@@ -1,0 +1,20 @@
+- model: wakerfarmer.Score
+    pk: 1
+    fields:
+        score: ดีมาก
+- model: wakerfarmer.Score
+    pk: 2
+    fields:
+        score: ดี
+- model: wakerfarmer.Score
+    pk: 3
+    fields:
+        score: พอใช้
+- model: wakerfarmer.Score
+    pk: 4
+    fields:
+        score: แย่
+- model: wakerfarmer.Score
+    pk: 5
+    fields:
+        score: แย่มาก
