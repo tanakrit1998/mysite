@@ -3,23 +3,33 @@
   fields:
     first_name: นายโชค
     last_name: ใจดี
+    username: chock
+    password: 123
 - model: wakerfarmer.Ownermill
   pk: 2
   fields:
     first_name: นายโชคดี
     last_name: มีชัย
+    username: dee
+    password: 223
 - model: wakerfarmer.Ownermill
   pk: 3
   fields:
     first_name: นายโชคชัย
     last_name: มีวัว
+    username: any
+    password: 334
 - model: wakerfarmer.Ownermill
   pk: 4
   fields:
     first_name: นางสุขใจ
     last_name: ชื่นบาน
+    username: ana
+    password: 445
 - model: wakerfarmer.Ownermill
   pk: 5
   fields:
     first_name: นายศักดิ์ศรี
     last_name: เชื้อชาติ
+    username: tanny
+    password: 555

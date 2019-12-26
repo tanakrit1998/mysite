@@ -3,19 +3,22 @@
   fields:
     first_name: สมศักดิ์
     last_name: ดีจริง
-    email: aaa@gmail.com
+    username: bos
+    password: 112
     call: 01111111
 - model: wakerfarmer.Farmer
   pk: 2
   fields:
     first_name: สมศรี
     last_name: ดีจ้า
-    email: bbb@gmail.com
+    username: tan
+    password: 222
     call: 033333333
 - model: wakerfarmer.Farmer
   pk: 3
   fields:
     first_name: สมหมาย
     last_name: ดีโด้
-    email: ccc@gmail.com
+    username: dan
+    password: 333
     call: 022222222
