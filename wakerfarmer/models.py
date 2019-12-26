@@ -7,11 +7,9 @@ class Mill(models.Model):
     sprice = models.IntegerField(null     = True, blank  = True)
     lat    = models.CharField(max_length  = 100, default = None)
     lng    = models.CharField(max_length  = 100, default = None)
-    #score  = models.ForeignKey(Score,on_delete=models.CASCADE)
-    #queue  = models.ForeignKey(Carqueue,on_delete=models.CASCADE)
-
+ 
     def __str__(self):
-        return f'{self.mid} - โรงสี {self.name} ราคาข้าวจ้าว {self.price} ราคข้าวเหนียว  {self.sprice} คะแนน {self.score} คิวรถ {self.queue}'
+        return f'{self.mid} - โรงสี {self.name} ราคาข้าวจ้าว {self.price} ราคข้าวเหนียว  {self.sprice} '
 
 class Farmer(models.Model):
     fid        = models.AutoField(primary_key = True)
