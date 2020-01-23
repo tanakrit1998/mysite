@@ -2,14 +2,15 @@ from django.db import models
 
 class Mill(models.Model):
     mid    = models.AutoField(primary_key = True)
+    queue  = models.IntegerField(null    = True,blank   = True)
     name   = models.CharField(max_length  = 100)
     price  = models.IntegerField(null     = True,blank   = True)
     sprice = models.IntegerField(null     = True, blank  = True)
-    lat    = models.CharField(max_length  = 100, default = None)
-    lng    = models.CharField(max_length  = 100, default = None)
+    lat    = models.FloatField(null  = True, blank = True)
+    lng    = models.FloatField(null  = True, blank = True)
  
     def __str__(self):
-        return f'{self.mid} - โรงสี {self.name} ราคาข้าวจ้าว {self.price} ราคข้าวเหนียว  {self.sprice} '
+        return f'{self.mid} - โรงสี {self.name} คิวที่ {self.queue} ราคาข้าวจ้าว {self.price} ราคข้าวเหนียว  {self.sprice} ละติจูด {self.lat} ลองจิจูด {self.lng}'
 
 class Farmer(models.Model):
     fid        = models.AutoField(primary_key = True)

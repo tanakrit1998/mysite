@@ -1,41 +1,46 @@
 - model: wakerfarmer.Mill
   pk: 1
   fields:
-    name: โชคดี
+    name: อุบลอินเตอร์ไรซ์ จำกัด
+    queue: 10
     price: 1600
     sprice: 1500
-    lat: 1
-    lng: 1
+    lat: 15.153972635336832
+    lng: 104.8883519137974
 - model: wakerfarmer.Mill
   pk: 2
   fields:
-    name: โชคชัย
+    name: เอกไพบูลย์
+    queue: 5
     price: 1550
     sprice: 1560
-    lat: 2
-    lng: 2
+    lat: 15.157695498360166
+    lng: 104.88763978730394
 - model: wakerfarmer.Mill
   pk: 3
   fields:
-    name: โชคชัย
+    name: เทอดไทย
+    queue: 2
     price: 1620
     sprice: 1600
-    lat: 3
-    lng: 3
+    lat: 15.16038793147989
+    lng: 104.88613238583757
 - model: wakerfarmer.Mill
   pk: 4
   fields:
-    name: ชัยยา
+    name: โชคประเสริฐเขมราฐ
+    queue: 15
     price: 1600
     sprice: 1550
-    lat: 4
-    lng: 4
+    lat: 15.953266620294649 
+    lng: 105.20259978312251
 - model: wakerfarmer.Mill
   pk: 5
   fields:
-    name: โชคดีเด้อ
+    name: สหกรณ์การเกษตรตระการ
+    queue: 20
     price: 1580
     sprice: 1550
-    lat: 5
-    lng: 5
+    lat: 15.55572713709964 
+    lng: 104.9927768208074
    
