@@ -16,7 +16,13 @@ def apimills(req):
         mills = Mill.objects.all()
         data = serializers.serialize('json', mills)
         return HttpResponse(data, content_type='application/json')
-    
+
+def apimills_by_price(req):
+    if req.method == 'GET':
+        print( req.GET )
+        mills = Mill.objects.order_by('-price','-sprice')
+        data = serializers.serialize('json', mills)
+        return HttpResponse(data, content_type='application/json')    
 
 def api_get_close_mills(req, lat, lng, distance='5.0'):
     distance = float(distance)
