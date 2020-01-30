@@ -10,12 +10,42 @@ from .models import *
 def index(req):
     return render(req, 'wakeupfarmer/index.html')
 
+@csrf_exempt
 def apimills(req):
     if req.method == 'GET':
         print( req.GET )
         mills = Mill.objects.all()
         data = serializers.serialize('json', mills)
         return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def get_mill(req, mid=0):
+    #print(f'mid = {mid}')
+    try:
+        mill = Mill.objects.get(pk=mid)
+        #print(mill)
+        data = serializers.serialize('json', [ mill ])
+        #print(data)
+        return HttpResponse(data, content_type='application/json')
+    except:
+        print('exception')
+    return HttpResponse({}, content_type='application/json')
+
+@csrf_exempt
+def update_mill(req, mid=0):
+    print(f'mid = {mid}')
+    d = json.loads(req.body)
+    #print(d)
+    if req.method == 'POST':
+        #print(mill)
+        #print(req.POST)
+        mill = Mill.objects.get(pk=mid)
+        mill.queue = int(d['queue'])
+        mill.save()
+        data = serializers.serialize('json', [mill])
+        return HttpResponse(data, content_type='application/json')
+
+    return HttpResponse({}, content_type='application/json')
 
 def apimills_by_price(req):
     if req.method == 'GET':
@@ -54,4 +84,36 @@ def api_login(req):
                 'user': 'Boss',
                 'message': 'login success' 
             }
+    return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')
+
+@csrf_exempt
+def api_register_farmer (req) : 
+    data = { 
+        'user': '',
+        'name': '',
+        'message': 'login fails', 
+    }
+    if req.method == 'POST':
+        a = str(req.body)
+        a = a[3:-2].split(',')
+        username = a[0].split(':')[1]
+        password = a[1].split(':')[1]
+        username = username.strip().replace('"', '')
+        password = password.strip().replace('"', '')
+
+        # print(f'เขาส่ง username= "{username}"')
+        # print(f'เขาส่ง password= "{password}"')
+    try:
+        farmers = Farmer()
+        
+        farmers.username = username
+        farmers.password = password
+        farmers.save()
+        if farmers: # ถ้าค้นเจอ
+            data = { 
+                'user': farmers.username,
+                'password': farmers.password,
+                'message': 'regiter success' ,
+            }
+    except: pass
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')

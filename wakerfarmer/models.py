@@ -16,7 +16,7 @@ class Farmer(models.Model):
     fid        = models.AutoField(primary_key = True)
     first_name = models.CharField(max_length  = 100)
     last_name  = models.CharField(max_length  = 100)
-    username   = models.CharField(max_length  = 100)
+    username   = models.CharField(max_length  = 100, unique=True)
     password   = models.CharField(max_length  = 100)
     call       = models.IntegerField(null     = True,blank = True)
 
