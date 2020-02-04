@@ -91,29 +91,44 @@ def api_register_farmer (req) :
     data = { 
         'user': '',
         'name': '',
+        'password': '',
         'message': 'login fails', 
     }
     if req.method == 'POST':
         a = str(req.body)
         a = a[3:-2].split(',')
-        username = a[0].split(':')[1]
-        password = a[1].split(':')[1]
+        first_name = a[0].split(':')[1]
+        last_name = a[1].split(':')[1]
+        username = a[2].split(':')[1]
+        password = a[3].split(':')[1]
+        call     = a[4].split(':')[1]
+
+        first_name = first_name.strip().replace('"','')
+        last_name = last_name.strip().replace('"','')
         username = username.strip().replace('"', '')
         password = password.strip().replace('"', '')
+        call    = call.strip().replace('"','')
 
-        # print(f'เขาส่ง username= "{username}"')
-        # print(f'เขาส่ง password= "{password}"')
-    try:
-        farmers = Farmer()
-        
-        farmers.username = username
-        farmers.password = password
-        farmers.save()
-        if farmers: # ถ้าค้นเจอ
-            data = { 
-                'user': farmers.username,
-                'password': farmers.password,
-                'message': 'regiter success' ,
-            }
-    except: pass
+        print(f'เขาส่ง username= "{username}"')
+        print(f'เขาส่ง password= "{password}"')
+        try:
+            farmers = Farmer()
+    
+            farmers.first_name = first_name
+            farmers.last_name =last_name
+            farmers.username = username
+            farmers.password = password
+            farmers.call    = call
+            farmers.save()
+            print(f'เขาส่ง password= "{password}"')
+            if farmers: # ถ้าค้นเจอ
+                data = {
+                    'first_name': farmers.first_name,
+                    'last_name': farmers.last_name,
+                    'user': farmers.username,
+                    'password': farmers.password,
+                    'call': farmers.call,
+                    'message': 'regiter success' ,
+                }
+        except: pass
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')
