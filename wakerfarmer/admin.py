@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Mill)
 admin.site.register(Farmer)
 admin.site.register(Carqueue)
+admin.site.register(Ownermill)

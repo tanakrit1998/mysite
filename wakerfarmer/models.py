@@ -23,6 +23,16 @@ class Farmer(models.Model):
     def __str__(self):
         return f'{self.fid} ชื่อ {self.first_name} นามสกุล {self.last_name} username: {self.username} password: {self.password} เบอร์โทรศัพท์ {self.call}'
 
+class Ownermill(models.Model):
+    oid         = models.AutoField(primary_key = True)
+    first_name   = models.CharField(max_length = 100)
+    last_name    = models.CharField(max_length = 100)
+    username     = models.CharField(max_length = 100, unique=True)
+    password     = models.CharField(max_length = 100)
+   
+    def __str__(self):
+        return f'{self.oid} ชื่อ {self.first_name} นามสกุล {self.last_name} username: {self.username} password: {self.password} '        
+
 
 class ScoreLevel(models.Model):
     sid     = models.AutoField(primary_key = True)
