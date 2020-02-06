@@ -82,7 +82,7 @@ def api_login(req):
         if farmers: # ถ้าค้นเจอ
             data = { 
                 'user': 'Boss',
-                'message': 'login success' 
+                'message': 'login success' ,
             }
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')
 
@@ -96,15 +96,16 @@ def api_login_owner(req):
         a = a[3:-2].split(',')
         username = a[0].split(':')[1]
         password = a[1].split(':')[1]
+
         username = username.strip().replace('"', '')
         password = password.strip().replace('"', '')
         print(f'เขาส่ง username= "{username}"')
         print(f'เขาส่ง password= "{password}"')
-        ownermill = Ownermill.objects.filter(username=username, password=password)
-        if Ownermill: # ถ้าค้นเจอ
+        ownermills = Ownermill.objects.filter(username=username, password=password)
+        if ownermills: # ถ้าค้นเจอ
             data = { 
                 'user': 'Boss',
-                'message': 'login success' 
+                'message': 'loginowner success' ,
             }
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')    
 
@@ -133,26 +134,27 @@ def api_register_farmer (req) :
 
         print(f'เขาส่ง username= "{username}"')
         print(f'เขาส่ง password= "{password}"')
-        try:
-            farmers = Farmer()
-    
-            farmers.first_name = first_name
-            farmers.last_name =last_name
-            farmers.username = username
-            farmers.password = password
-            farmers.call    = call
-            farmers.save()
-            print(f'เขาส่ง password= "{password}"')
-            if farmers: # ถ้าค้นเจอ
-                data = {
-                    'first_name': farmers.first_name,
-                    'last_name': farmers.last_name,
-                    'user': farmers.username,
-                    'password': farmers.password,
-                    'call': farmers.call,
-                    'message': 'register success' ,
-                }
-        except: pass
+        if first_name != '' and last_name != '' and username != '' and password != '' and call != '':
+            try:
+                farmers = Farmer()
+        
+                farmers.first_name = first_name
+                farmers.last_name =last_name
+                farmers.username = username
+                farmers.password = password
+                farmers.call    = call
+                farmers.save()
+                print(f'เขาส่ง password= "{password}"')
+                if farmers: # ถ้าค้นเจอ
+                    data = {
+                        'first_name': farmers.first_name,
+                        'last_name': farmers.last_name,
+                        'user': farmers.username,
+                        'password': farmers.password,
+                        'call': farmers.call,
+                        'message': 'register success' ,
+                    }
+            except: pass
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')
 
 @csrf_exempt
@@ -181,24 +183,26 @@ def api_register_ownermill (req) :
 
         print(f'เขาส่ง username= "{username}"')
         print(f'เขาส่ง password= "{password}"')
-        try:
-            ownermill = Ownermill()
-    
-            ownermill.first_name = first_name
-            ownermill.last_name =last_name
-            ownermill.username = username
-            ownermill.password = password
-            
-            ownermill.save()
-            
-            if ownermill: # ถ้าค้นเจอ
-                data = {
-                    'first_name': ownermill.first_name,
-                    'last_name': ownermill.last_name,
-                    'user': ownermill.username,
-                    'password': ownermill.password,
-                    'message': 'register success' ,
-                }
-        except: pass
+        if first_name != '' and last_name != '' and username != '' and password != '':
+
+            try:
+                ownermill = Ownermill()
+        
+                ownermill.first_name = first_name
+                ownermill.last_name =last_name
+                ownermill.username = username
+                ownermill.password = password
+                
+                ownermill.save()
+                
+                if ownermill: # ถ้าค้นเจอ
+                    data = {
+                        'first_name': ownermill.first_name,
+                        'last_name': ownermill.last_name,
+                        'user': ownermill.username,
+                        'password': ownermill.password,
+                        'message': 'register success' ,
+                    }
+            except: pass
     return HttpResponse(json.dumps(data), content_type = 'application/javascript; charset=utf8')
 
