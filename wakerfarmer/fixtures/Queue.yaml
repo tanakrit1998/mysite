@@ -1,0 +1,20 @@
+- model: wakerfarmer.Queue
+  pk: 1
+  fields:
+    queue: 10
+- model: wakerfarmer.Queue
+  pk: 2
+  fields:
+    queue: 5
+- model: wakerfarmer.Queue
+  pk: 3
+  fields:
+    queue: 2
+- model: wakerfarmer.Queue
+  pk: 4
+  fields:
+    queue: 15
+- model: wakerfarmer.Queue
+  pk: 5
+  fields:
+    queue: 20

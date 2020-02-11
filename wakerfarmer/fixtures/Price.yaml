@@ -1,0 +1,25 @@
+- model: wakerfarmer.Price
+  pk: 1
+  fields: 
+    price: 1600
+    sprice: 1500
+- model: wakerfarmer.Price
+  pk: 2
+  fields:
+    price: 1550
+    sprice: 1560
+- model: wakerfarmer.Price
+  pk: 3
+  fields:
+    price: 1620
+    sprice: 1600
+- model: wakerfarmer.Price
+  pk: 4
+  fields:
+    price: 1600
+    sprice: 1550
+- model: wakerfarmer.Price
+  pk: 5
+  fields:
+    price: 1580
+    sprice: 1550

@@ -2,45 +2,35 @@
   pk: 1
   fields:
     name: อุบลอินเตอร์ไรซ์ จำกัด
-    queue: 10
-    price: 1600
-    sprice: 1500
-    lat: 15.153972635336832
-    lng: 104.8883519137974
+    queue: 1
+    price: 1
+    map: 1
 - model: wakerfarmer.Mill
   pk: 2
   fields:
     name: เอกไพบูลย์
-    queue: 5
-    price: 1550
-    sprice: 1560
-    lat: 15.157695498360166
-    lng: 104.88763978730394
+    queue: 2
+    price: 2
+    map: 2
 - model: wakerfarmer.Mill
   pk: 3
   fields:
     name: เทอดไทย
-    queue: 2
-    price: 1620
-    sprice: 1600
-    lat: 15.16038793147989
-    lng: 104.88613238583757
+    queue: 3
+    price: 3
+    map: 3
 - model: wakerfarmer.Mill
   pk: 4
   fields:
     name: โชคประเสริฐเขมราฐ
-    queue: 15
-    price: 1600
-    sprice: 1550
-    lat: 15.953266620294649 
-    lng: 105.20259978312251
+    queue: 4
+    price: 4
+    map: 4
 - model: wakerfarmer.Mill
   pk: 5
   fields:
     name: สหกรณ์การเกษตรตระการ
-    queue: 20
-    price: 1580
-    sprice: 1550
-    lat: 15.55572713709964 
-    lng: 104.9927768208074
+    queue: 5
+    price: 5
+    map: 5
    
