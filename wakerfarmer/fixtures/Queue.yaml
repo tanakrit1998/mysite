@@ -1,20 +1,30 @@
 - model: wakerfarmer.Queue
   pk: 1
   fields:
+    mill: 1
+    farmer: 1
     queue: 10
 - model: wakerfarmer.Queue
   pk: 2
   fields:
+    mill: 2
+    farmer: 2
     queue: 5
 - model: wakerfarmer.Queue
   pk: 3
   fields:
+    mill: 3
+    farmer: 3
     queue: 2
 - model: wakerfarmer.Queue
   pk: 4
   fields:
+    mill: 4
+    farmer: 4
     queue: 15
 - model: wakerfarmer.Queue
   pk: 5
   fields:
+    mill: 5
+    farmer: 5
     queue: 20

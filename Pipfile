@@ -10,6 +10,15 @@ django = "*"
 pillow = "*"
 pyyaml = "*"
 pygraphviz = "*"
+djangorestframework = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+dropdata = 'bash -c "rm -rf db.sqlite3 restapi/migrations wakerfarmer/migrations"'
+loaddata = 'python manage.py loaddata Mill Farmer Ownermill Queue Price'
+migrate = 'bash -c "python manage.py makemigrations wakerfarmer && python manage.py makemigrations && python manage.py migrate wakerfarmer && python manage.py migrate"'
+server = 'python manage.py runserver'
+admin = 'python manage.py createsuperuser'

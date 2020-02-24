@@ -1,25 +1,35 @@
 - model: wakerfarmer.Price
   pk: 1
   fields: 
+    mill: 1
+    farmer: 1
     price: 1600
     sprice: 1500
 - model: wakerfarmer.Price
   pk: 2
   fields:
+    mill: 2
+    farmer: 2
     price: 1550
     sprice: 1560
 - model: wakerfarmer.Price
   pk: 3
   fields:
+    mill: 3
+    farmer: 3
     price: 1620
     sprice: 1600
 - model: wakerfarmer.Price
   pk: 4
   fields:
+    mill: 4
+    farmer: 4
     price: 1600
     sprice: 1550
 - model: wakerfarmer.Price
   pk: 5
   fields:
+    mill: 5
+    farmer: 5
     price: 1580
     sprice: 1550

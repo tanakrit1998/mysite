@@ -1,25 +1,30 @@
 - model: wakerfarmer.Map
   pk: 1
   fields:
+    ownermill: 1
     lat: 15.153972635336832
     lng: 104.8883519137974
 - model: wakerfarmer.Map
   pk: 2
   fields:
+    ownermill: 2
     lat: 15.157695498360166
     lng: 104.88763978730394
 - model: wakerfarmer.Map
   pk: 3
   fields:
+    ownermill: 3
     lat: 15.16038793147989
     lng: 104.88613238583757
 - model: wakerfarmer.Map
   pk: 4
   fields:
+    ownermill: 4
     lat: 15.953266620294649 
     lng: 105.20259978312251
 - model: wakerfarmer.Map
   pk: 5
   fields:
+    ownermill: 5
     lat: 15.55572713709964 
     lng: 104.9927768208074

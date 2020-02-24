@@ -5,7 +5,7 @@
     last_name: ดีจริง
     username: bos
     password: 112
-    call: 01111111
+    call: 011111111
 - model: wakerfarmer.Farmer
   pk: 2
   fields:
@@ -22,3 +22,19 @@
     username: dan
     password: 333
     call: 022222222
+- model: wakerfarmer.Farmer
+  pk: 4
+  fields:
+    first_name: ธนกฤต
+    last_name: เจริญสุข
+    username: tana
+    password: 3112
+    call: 0959088299
+- model: wakerfarmer.Farmer
+  pk: 5
+  fields: 
+    first_name: อภิวัฒน์
+    last_name: ทาทอง
+    username: apiwat
+    password: 88455
+    call: 0881147889

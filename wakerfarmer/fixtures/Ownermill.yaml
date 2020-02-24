@@ -4,4 +4,32 @@
     first_name: สมศักดิ์
     last_name: ดีจริง
     username: boss
-    password: 112
+    password: 1122
+- model: wakerfarmer.Ownermill
+  pk: 2
+  fields:
+    first_name: สมชาย
+    last_name: เข็มกรัด
+    username: somchay
+    password: 5556
+- model: wakerfarmer.Ownermill
+  pk: 3
+  fields:
+    first_name: เจตพล
+    last_name: ชินพันธ์
+    username: jad
+    password: 0122
+- model: wakerfarmer.Ownermill
+  pk: 4
+  fields:
+    first_name: ณัฐพงษ์
+    last_name: สมานพงษ์
+    username: nick
+    password: 1154
+- model: wakerfarmer.Ownermill
+  pk: 5
+  fields:
+    first_name: ณัชยา
+    last_name: ยาดี
+    username: supata
+    password: 5584

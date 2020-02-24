@@ -1,6 +1,8 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from wakerfarmer import views
+
+from restapi.urls import router
 
 urlpatterns = [
     path('', views.index),
@@ -14,5 +16,9 @@ urlpatterns = [
     path('api/register', views.api_register_farmer),
     path('api/register_owner', views.api_register_ownermill),
     path('admin/', admin.site.urls),
+
+    # --- เพิ่มเติม
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('restapi/', include(router.urls)),
     
 ]
