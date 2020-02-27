@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 
 class Farmer(models.Model):
@@ -32,7 +32,7 @@ class Mill(models.Model):
     ownermill = models.ForeignKey(Ownermill,on_delete=models.CASCADE,default=1)
 
     def __str__(self):
-        return f'{self.mid} - โรงสี - {self.name}  - ละติจูด - {self.lat} ลองจิจูด - {self.lng} เจ้าของโรงสี {self.ownermill}'
+        return f'{self.mid} - โรงสี - {self.name}  - ละติจูด - {self.lat} ลองจิจูด - {self.lng} '
 
 
 class Queue(models.Model):
@@ -42,7 +42,7 @@ class Queue(models.Model):
     queue     = models.IntegerField(null     = True, blank = True)
 
     def __str__(self):
-        return f'{self.qid} - คิวที่ {self.queue} - ชื่อชาวนา {self.farmer} - โรงสี {self.mill} '
+        return f'{self.qid} - คิวที่ {self.queue}  - โรงสี {self.mill} '
 
 class Price(models.Model):
     pid    = models.AutoField(primary_key = True)
@@ -50,9 +50,10 @@ class Price(models.Model):
     farmer = models.ForeignKey(Farmer,on_delete=models.CASCADE,default=1)
     price  = models.IntegerField(null     = True, blank = True)
     sprice = models.IntegerField(null     = True, blank = True)
+    time   = models.TimeField(default = timezone.now)
 
     def __str__(self):
-        return f'{self.pid} - ราคาข้าวหอมมะลิ {self.price} -ราคาข้าวเหนียว {self.sprice} ชื่อ {self.farmer} - โรงสี - {self.mill}'
+        return f'{self.pid} - ราคาข้าวหอมมะลิ {self.price} -ราคาข้าวเหนียว {self.sprice}  - โรงสี - {self.mill} -เวลา- {self.time}'
 
 
 
