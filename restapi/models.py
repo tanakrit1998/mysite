@@ -18,7 +18,7 @@ class FarmerSerializer(serializers.ModelSerializer):
 class OwnermillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ownermill
-        fields = [ 'qid', 'first_name', 'last_name', 'username' ]
+        fields = [ 'oid', 'first_name', 'last_name', 'username' ]
 
 class QueueSerializer(serializers.ModelSerializer):
     class Meta:
