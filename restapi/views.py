@@ -22,5 +22,6 @@ class QueueViewSet(viewsets.ModelViewSet):
     serializer_class = QueueSerializer
 
 class PriceViewSet(viewsets.ModelViewSet):
-    queryset = Price.objects.all()
+    #queryset = Price.objects.all()
+    queryset = Price.objects.order_by('-price')
     serializer_class = PriceSerializer

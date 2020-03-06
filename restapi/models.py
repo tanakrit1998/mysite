@@ -5,11 +5,6 @@ from rest_framework import serializers
 
 from wakerfarmer.models import *
 
-class MillSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mill
-        fields = [ 'mid', 'name', 'lat', 'lng' ]
-
 class FarmerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Farmer
@@ -18,14 +13,24 @@ class FarmerSerializer(serializers.ModelSerializer):
 class OwnermillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ownermill
-        fields = [ 'qid', 'first_name', 'last_name', 'username' ]
+        fields = [ 'oid', 'first_name', 'last_name', 'username' ]
+
+class MillSerializer(serializers.ModelSerializer):
+    ownermill = OwnermillSerializer(read_only=True)
+    class Meta:
+        model = Mill
+        fields = [ 'mid', 'name', 'lat', 'lng', 'ownermill' ]
 
 class QueueSerializer(serializers.ModelSerializer):
+    mill = MillSerializer(read_only=True)
+    farmer = FarmerSerializer(read_only=True)
     class Meta:
         model = Queue
         fields = [ 'qid', 'mill', 'farmer', 'queue' ]
 
 class PriceSerializer(serializers.ModelSerializer):
+    mill = MillSerializer(read_only=True)
+    farmer = FarmerSerializer(read_only=True)
     class Meta:
         model = Price
         fields = [ 'pid', 'mill', 'farmer', 'price', 'sprice' ]

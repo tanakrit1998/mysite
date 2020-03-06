@@ -12,7 +12,6 @@ pyyaml = "*"
 pygraphviz = "*"
 djangorestframework = "*"
 markdown = "*"
-django-extensions = "*"
 
 [requires]
 python_version = "3.7"

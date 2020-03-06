@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import *
@@ -50,9 +50,12 @@ def update_mill(req, mid=0):
 def apimills_by_price(req):
     if req.method == 'GET':
         print( req.GET )
-        mills = Mill.objects.order_by('-price','-sprice')
-        data = serializers.serialize('json', mills)
-        return HttpResponse(data, content_type='application/json')    
+        #mills = Mill.objects.order_by('-price','-sprice')
+        prices = Price.objects.order_by('-price').values()
+        #print(prices)
+        #data = serializers.serialize('json', prices)
+        #return HttpResponse(data, content_type='application/json')    
+        return JsonResponse(list(prices), safe=False)    
 
 def api_get_close_mills(req, lat, lng, distance='5.0'):
     distance = float(distance)
