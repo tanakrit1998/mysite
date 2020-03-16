@@ -50,7 +50,7 @@ class Price(models.Model):
     farmer = models.ForeignKey(Farmer,on_delete=models.CASCADE,default=1)
     price  = models.IntegerField(null     = True, blank = True)
     sprice = models.IntegerField(null     = True, blank = True)
-    time   = models.TimeField(default = timezone.now)
+    time   = models.DateTimeField(default = timezone.now)
 
     def __str__(self):
         return f'{self.pid} - ราคาข้าวหอมมะลิ {self.price} -ราคาข้าวเหนียว {self.sprice}  - โรงสี - {self.mill} -เวลา- {self.time}'

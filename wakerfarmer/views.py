@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Max
 
 from .models import *
 
@@ -14,6 +15,34 @@ def index(req):
 def apimills(req):
     if req.method == 'GET':
         print( req.GET )
+        mills = Mill.objects.all()
+        data = serializers.serialize('json', mills)
+        return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def api_max_queue(req, mid=0): # queue ห้ามลด ต้องเพิ่มตลอด
+    if req.method == 'GET':
+        queue.queue = Queue.objects.aggregate(Max('queue'))
+        queue.save()
+
+        data = serializers.serialize('json', list(queue))
+        return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def api_add_queue(req, mid=0, fid=0): # queue ห้ามลด ต้องเพิ่มตลอด
+    if req.method == 'POST':
+        queue = Queue()
+        queue.mill = Mill.objects.get(pk=mid)
+        queue.farmer = Farmer.objects.get(pk=fid)
+        queue.queue = Queue.objects.filter(mill=queue.mill).aggregate(Max('queue'))['queue__max']+1
+        queue.save()
+
+        data = serializers.serialize('json', [ queue ])
+        return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def api_delete_queue(req, qid=0): 
+    if req.method == 'POST':
         mills = Mill.objects.all()
         data = serializers.serialize('json', mills)
         return HttpResponse(data, content_type='application/json')

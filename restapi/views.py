@@ -18,7 +18,7 @@ class OwnermillViewSet(viewsets.ModelViewSet):
     serializer_class = OwnermillSerializer
 
 class QueueViewSet(viewsets.ModelViewSet):
-    queryset = Queue.objects.all()
+    queryset = Queue.objects.all() #order_by('-time')
     serializer_class = QueueSerializer
 
 class PriceViewSet(viewsets.ModelViewSet):
