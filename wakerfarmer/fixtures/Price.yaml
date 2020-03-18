@@ -5,7 +5,7 @@
     farmer: 1
     price: 1600
     sprice: 1500
-    time: 2020-03-20 06:00 
+    time: 2020-03-20T13:20:30+03:00 
 - model: wakerfarmer.Price
   pk: 2
   fields:
@@ -13,7 +13,7 @@
     farmer: 2
     price: 1550
     sprice: 1560
-    time: 2020-03-20 06:00
+    time: 2020-03-20T13:06:00+03:00
 - model: wakerfarmer.Price
   pk: 3
   fields:
@@ -21,7 +21,7 @@
     farmer: 3
     price: 1620
     sprice: 1600
-    time: 2020-03-20 07:00
+    time: 2020-03-20T13:07:00+03:00
 - model: wakerfarmer.Price
   pk: 4
   fields:
@@ -29,7 +29,7 @@
     farmer: 4
     price: 1600
     sprice: 1550
-    time: 2020-03-20 07:30
+    time: 2020-03-20T13:07:30+03:00
 - model: wakerfarmer.Price
   pk: 5
   fields:
@@ -37,4 +37,4 @@
     farmer: 5
     price: 1580
     sprice: 1550
-    time: 2020-03-20 08:20
+    time: 2020-03-20T13:08:20+03:00
