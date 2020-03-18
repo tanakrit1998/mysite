@@ -30,15 +30,17 @@ def api_max_queue(req, mid=0): # queue ห้ามลด ต้องเพิ�
 
 @csrf_exempt
 def api_add_queue(req, mid=0, fid=0): # queue ห้ามลด ต้องเพิ่มตลอด
-    if req.method == 'POST':
-        queue = Queue()
-        queue.mill = Mill.objects.get(pk=mid)
-        queue.farmer = Farmer.objects.get(pk=fid)
-        queue.queue = Queue.objects.filter(mill=queue.mill).aggregate(Max('queue'))['queue__max']+1
-        queue.save()
+    #if req.method == 'GET':
+    queue = Queue()
+    mill = Mill.objects.get(pk=mid)
+    queue.mill = mill
+    farmer = Farmer.objects.get(pk=fid)
+    queue.farmer = farmer
+    queue.queue = Queue.objects.filter(mill=queue.mill).aggregate(Max('queue'))['queue__max']+1
+    queue.save()
 
-        data = serializers.serialize('json', [ queue ])
-        return HttpResponse(data, content_type='application/json')
+    data = serializers.serialize('json', [ queue, mill, farmer ])
+    return HttpResponse(data, content_type='application/json')
 
 @csrf_exempt
 def api_delete_queue(req, qid=0): 
