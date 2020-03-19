@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/mill/<int:mid>', views.get_mill),
     path('api/add_queue/<int:mid>/<int:fid>/', views.api_add_queue),
     path('api/update/mill/<int:mid>', views.update_mill),
+    path('api/mill_detail/<int:mid>/', views.api_mill_detail),
     path('api/mills_by_price', views.apimills_by_price),
     path('api/closemills/<str:lat>/<str:lng>/<str:distance>/', views.api_get_close_mills),
     path('api/register', views.api_register_farmer),

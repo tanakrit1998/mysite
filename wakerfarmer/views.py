@@ -29,6 +29,31 @@ def api_max_queue(req, mid=0): # queue ห้ามลด ต้องเพิ�
         return HttpResponse(data, content_type='application/json')
 
 @csrf_exempt
+def api_mill_detail(req, mid=0): # queue, price ห้ามลด ต้องเพิ่มตลอด
+    #if req.method == 'GET':
+    m = Mill.objects.get(pk=mid)
+    queue = Queue.objects.filter(mill=m).order_by('-queue').first()
+    price = Price.objects.filter(mill=m).order_by('-time').first()
+
+    d = {
+            #'mill': m,
+            #'queue': queue,
+            #'price': price,
+            'fid': queue.farmer.fid,
+            'mid':m.mid,
+            'farmer_name': queue.farmer.first_name,
+            'price': price.price,
+            'sprice': price.sprice,
+            'mill': m.name,
+            'queue': queue.queue,
+            'lat': m.lat,
+            'lng': m.lng,
+    }
+    #data = serializers.serialize('json', d)
+    #return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)    
+
+@csrf_exempt
 def api_add_queue(req, mid=0, fid=0): # queue ห้ามลด ต้องเพิ่มตลอด
     #if req.method == 'GET':
     queue = Queue()
