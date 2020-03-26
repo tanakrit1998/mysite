@@ -69,10 +69,18 @@ def api_add_queue(req, mid=0, fid=0): # queue ห้ามลด ต้องเ
 
 @csrf_exempt
 def api_delete_queue(req, qid=0): 
-    if req.method == 'POST':
-        mills = Mill.objects.all()
-        data = serializers.serialize('json', mills)
-        return HttpResponse(data, content_type='application/json')
+    # 1. หา Queue ที่มี primary key เป็น qid และ ลบออกจาก ตาราง Queue
+    queue = Queue.objects.get(pk=qid)
+    queue.delete()
+    # 2. หา max queue ล่าสุดของ โรงสี
+    maxqueue = Queue.objects.filter(mill=queue.mill).order_by('-queue').first()
+    d = {
+        'qid': maxqueue.qid,
+        'mill': maxqueue.mill.name,
+        'farmer': maxqueue.farmer.first_name,
+        'queue': maxqueue.queue
+    }
+    return JsonResponse(d, safe=False)    
 
 @csrf_exempt
 def get_mill(req, mid=0):

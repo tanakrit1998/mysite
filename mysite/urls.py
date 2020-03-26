@@ -11,6 +11,7 @@ urlpatterns = [
     path('api/mills', views.apimills),
     path('api/mill/<int:mid>', views.get_mill),
     path('api/add_queue/<int:mid>/<int:fid>/', views.api_add_queue),
+    path('api/delete_queue/<int:qid>/', views.api_delete_queue),
     path('api/update/mill/<int:mid>', views.update_mill),
     path('api/mill_detail/<int:mid>/', views.api_mill_detail),
     path('api/mills_by_price', views.apimills_by_price),
