@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Max
 
 from .models import *
+import operator
 
 # Create your views here.
 def index(req):
@@ -41,6 +42,7 @@ def api_mill_detail(req, mid=0): # queue, price ห้ามลด ต้อง�
             #'price': price,
             'fid': queue.farmer.fid,
             'mid':m.mid,
+            'qid': queue.qid,
             'farmer_name': queue.farmer.first_name,
             'price': price.price,
             'sprice': price.sprice,
@@ -64,8 +66,17 @@ def api_add_queue(req, mid=0, fid=0): # queue ห้ามลด ต้องเ
     queue.queue = Queue.objects.filter(mill=queue.mill).aggregate(Max('queue'))['queue__max']+1
     queue.save()
 
-    data = serializers.serialize('json', [ queue, mill, farmer ])
-    return HttpResponse(data, content_type='application/json')
+    d = {
+        'qid': queue.qid,
+        'mid': mill.mid,
+        'fid': farmer.fid,
+        'queue': queue.queue,
+        'farmer_name': farmer.first_name,
+    }
+
+    # data = serializers.serialize('json', [ queue, mill, farmer ])
+    # return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)    
 
 @csrf_exempt
 def api_delete_queue(req, qid=0): 
@@ -81,6 +92,84 @@ def api_delete_queue(req, qid=0):
         'queue': maxqueue.queue
     }
     return JsonResponse(d, safe=False)    
+
+@csrf_exempt
+def api_add_price(req, mid=0, fid=0, price=0, sprice=0): 
+    #เพิ่ม price 
+    p = Price()
+    mill = Mill.objects.get(pk=mid)
+    p.mill = mill
+    farmer = Farmer.objects.get(pk=fid)
+    p.farmer = farmer
+    p.price = price
+    p.sprice = sprice
+    p.save()
+    #เรียกราคาในเวลาล่าสุด
+    p = Price.objects.filter(mill=p.mill).order_by('-time').first()
+    
+    d = {
+        'pid': p.pid,
+        'mid': mill.mid,
+        'fid': farmer.fid,
+        'price': p.price,
+        'sprice': p.sprice,
+        'farmer_name': farmer.first_name,
+        'time': p.time,
+    }
+
+    # data = serializers.serialize('json', [ queue, mill, farmer ])
+    # return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)       
+
+@csrf_exempt
+def api_add_sprice(req, mid=0, fid=0, sprice=0): # queue ห้ามลด ต้องเพิ่มตลอด
+    #เพิ่ม price 
+    p = Price()
+    mill = Mill.objects.get(pk=mid)
+    p.mill = mill
+    farmer = Farmer.objects.get(pk=fid)
+    p.farmer = farmer
+    p.sprice = sprice
+    p.save()
+    #เรียกราคาในเวลาล่าสุด
+    p = Price.objects.filter(mill=p.mill).order_by('-time').first()
+    
+    d = {
+        'pid': p.pid,
+        'mid': mill.mid,
+        'fid': farmer.fid,
+        'sprice': p.sprice,
+        'farmer_name': farmer.first_name,
+        'time': p.time,
+    }
+
+    # data = serializers.serialize('json', [ queue, mill, farmer ])
+    # return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)    
+
+def apimills_by_price_mill(req):
+    if req.method == 'GET':
+        print( req.GET )
+        allmill = Mill.objects.all()
+        data = list()
+        for mill in allmill:
+            p = Price.objects.filter(mill = mill).order_by('-time').first()
+            d = {
+                "millname": mill.name,
+                "mid": mill.mid,
+                "price": p.price,
+                "sprice": p.sprice,
+                "lat":mill.lat,
+                "lng":mill.lng,
+                "fid":p.farmer.fid,
+                "farmername": p.farmer.first_name,
+                "pid": p.pid,
+            }
+            data.append(d)
+        print(data)
+        data = sorted(data, key = lambda x:x['price'],reverse = True)
+        return JsonResponse(data, safe=False)    
+
 
 @csrf_exempt
 def get_mill(req, mid=0):
