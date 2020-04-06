@@ -27,8 +27,8 @@ class Ownermill(models.Model):
 class Mill(models.Model):
     mid    = models.AutoField(primary_key = True)
     name   = models.CharField(max_length  = 100)
-    lat       = models.FloatField(null    = True, blank = True, unique=True)
-    lng       = models.FloatField(null    = True, blank = True, unique=True)
+    lat       = models.FloatField(null    = True, blank = True)
+    lng       = models.FloatField(null    = True, blank = True)
     ownermill = models.ForeignKey(Ownermill,on_delete=models.CASCADE,default=1)
 
     def __str__(self):

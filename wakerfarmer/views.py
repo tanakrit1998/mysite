@@ -147,6 +147,52 @@ def api_add_sprice(req, mid=0, fid=0, sprice=0): # queue ห้ามลด ต�
     # return HttpResponse(data, content_type='application/json')
     return JsonResponse(d, safe=False)    
 
+@csrf_exempt
+def api_add_locations(req, mid=0, lat = 0, lng = 0): # queue ห้ามลด ต้องเพิ่มตลอด
+    #เพิ่ม price 
+    mill = Mill.objects.get(pk=mid)
+    mill.lat = lat
+    mill.lng = lng
+    mill.save()
+    #เรียกราคาในเวลาล่าสุด
+    
+    
+    d = {
+        'mid': mill.mid,
+        'lat': mill.lat,
+        'lng': mill.lng,
+        
+    }
+
+    # data = serializers.serialize('json', [ queue, mill, farmer ])
+    # return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)      
+
+@csrf_exempt
+def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0): # queue ห้ามลด ต้องเพิ่มตลอด
+    #เพิ่ม price 
+    m = Mill()
+    m.ownermill = Ownermill.objects.get(pk=oid)
+    m.name = name
+    m.lat = lat
+    m.lng = lng
+    m.save()
+    #เรียกราคาในเวลาล่าสุด
+    
+    
+    d = {
+        'mid': m.mid,
+        'oid': m.ownermill.oid,
+        'name': m.name,
+        'lat': m.lat,
+        'lng': m.lng,
+        
+    }
+
+    # data = serializers.serialize('json', [ queue, mill, farmer ])
+    # return HttpResponse(data, content_type='application/json')
+    return JsonResponse(d, safe=False)       
+
 def apimills_by_price_mill(req):
     if req.method == 'GET':
         print( req.GET )
