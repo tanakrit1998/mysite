@@ -170,14 +170,21 @@ def api_add_locations(req, mid=0, lat = 0, lng = 0): # queue ห้ามลด 
 
 @csrf_exempt
 def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0): # queue ห้ามลด ต้องเพิ่มตลอด
-    #เพิ่ม price 
+    #เพิ่ม mill
     m = Mill()
     m.ownermill = Ownermill.objects.get(pk=oid)
     m.name = name
     m.lat = lat
     m.lng = lng
     m.save()
-    #เรียกราคาในเวลาล่าสุด
+    #เพิ่มprice ราคาเป็น 0 สำหรับ mill นี้
+    p = Price()
+    p.price = 0
+    #เพิ่มsprice ราคาเป็น 0 สำหรับ mill นี้
+    p.sprice = 0
+    p.mill = m
+    p.save()
+    
     
     
     d = {
@@ -186,6 +193,7 @@ def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0): # queue ห้าม
         'name': m.name,
         'lat': m.lat,
         'lng': m.lng,
+        
         
     }
 
