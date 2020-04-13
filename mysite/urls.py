@@ -16,7 +16,6 @@ urlpatterns = [
     path('api/delete_queue/<int:qid>/', views.api_delete_queue),
     path('api/update/mill/<int:mid>', views.update_mill),
     path('api/mill_detail/<int:mid>/', views.api_mill_detail),
-    path('api/mill_detail/<int:mid>/', views.api_mill_detail),
     path('api/api_add_locations/<int:mid>/<str:lat>/<str:lng>/', views.api_add_locations),
     path('api/api_add_mill/<int:oid>/<str:name>/<str:lat>/<str:lng>/', views.api_add_mill),
     path('api/mills_by_price_mill', views.apimills_by_price_mill),

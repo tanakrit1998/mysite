@@ -43,6 +43,7 @@ def api_mill_detail(req, mid=0): # queue, price ห้ามลด ต้อง�
             'fid': queue.farmer.fid,
             'mid':m.mid,
             'qid': queue.qid,
+            'oid':m.ownermill.oid,
             'farmer_name': queue.farmer.first_name,
             'price': price.price,
             'sprice': price.sprice,
@@ -148,7 +149,7 @@ def api_add_sprice(req, mid=0, fid=0, sprice=0): # queue ห้ามลด ต�
     return JsonResponse(d, safe=False)    
 
 @csrf_exempt
-def api_add_locations(req, mid=0, lat = 0, lng = 0): # queue ห้ามลด ต้องเพิ่มตลอด
+def api_add_locations(req, mid=0, lat = 0, lng = 0): 
     #เพิ่ม price 
     mill = Mill.objects.get(pk=mid)
     mill.lat = lat
@@ -169,7 +170,7 @@ def api_add_locations(req, mid=0, lat = 0, lng = 0): # queue ห้ามลด 
     return JsonResponse(d, safe=False)      
 
 @csrf_exempt
-def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0): # queue ห้ามลด ต้องเพิ่มตลอด
+def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0):
     #เพิ่ม mill
     m = Mill()
     m.ownermill = Ownermill.objects.get(pk=oid)
@@ -184,6 +185,11 @@ def api_add_mill(req, oid =0, name = "", lat = 0, lng = 0): # queue ห้าม
     p.sprice = 0
     p.mill = m
     p.save()
+    #เพิ่มqueue คิวเป็น 0 สำหรับ queue นี้
+    q = Queue()
+    q.queue = 0
+    q.mill = m
+    q.save()
     
     
     
@@ -218,6 +224,8 @@ def apimills_by_price_mill(req):
                 "fid":p.farmer.fid,
                 "farmername": p.farmer.first_name,
                 "pid": p.pid,
+                "oid": mill.ownermill.oid
+                
             }
             data.append(d)
         print(data)
